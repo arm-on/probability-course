@@ -129,6 +129,35 @@
 					Proof:
 					$$ P(A|B) = \dfrac{P(A \cap B)}{P(B)} \implies P(A|B)P(B) = P(A \cap B) \newline P(B|A) = \dfrac{P(B \cap A)}{P(A)} \implies P(B|A)P(A) = P(A \cap B)$$
 				</section>
+				<section>
+					<h2>Partition of a set</h2>
+					A family of sets $P$ is a partition of $S$ if and only if all of the following conditions hold:
+					<br><br>
+					<ol>
+						<li>$\emptyset \notin P$</li>
+						<li>$\cup_{X\in P} S = S$</li>
+						<li>$\forall A,B \in P \quad A\cap B = \emptyset$</li>
+					</ol>
+				</section>
+				<section>
+					<h2>The Law of Total Probability</h2>
+					Assume that $\Omega$ is partitioned into $B_i$'s. Then we have:<br>
+					$$ P(A) = \sum_i P(A\cap B_i) = \sum_i P(A|B_i)P(B_i)$$
+					Proof:<br>
+					$$
+					A = A \cap \Omega \implies P(A) = P(A\cap \Omega) \stackrel{\text{$ \Omega = \cup_i B_i $}}{\implies}
+					\newline P(A) = P(A\cap (\cup_i B_i)) = P(\cup_i (A\cap B_i)) \stackrel{\text{$ \forall i,j (A\cap B_i)\cap (A\cap B_j) = \emptyset $}}{=}
+					\newline \sum_i P(A\cap B_i) = \sum_i P(A|B_i) P(B_i)
+					$$
+				</section>
+				<section>
+					<h2>Independent events</h2>
+					Two events $A$ and $B$ are called independent if one of these hold:<br><br>
+					<ul>
+						<li>$P(B|A) = P(B)$ and $P(A|B)=P(A)$ </li>
+						<li>$P(A)=0$ or $P(B)=0$</li>
+					</ul>
+				</section>
 			</div>
 		</div>
 
