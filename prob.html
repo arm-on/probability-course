@@ -1,0 +1,165 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+		<title>Probability and Statistics</title>
+
+		<link rel="stylesheet" href="dist/reset.css">
+		<link rel="stylesheet" href="dist/reveal.css">
+		<link rel="stylesheet" href="dist/theme/black.css">
+
+		<!-- Theme used for syntax highlighted code -->
+		<link rel="stylesheet" href="plugin/highlight/monokai.css">
+	</head>
+	<body>
+		<div class="reveal">
+			<div class="slides">
+				<section>
+					<h1>Probability and Statistics</h1>
+				</section>
+				<section>
+					<h2>Random Experiment</h2>
+					<p>An experiment for which we cannot predict the outcome in advance.
+					</br>
+					Example: Coin Tossing
+					</p>
+				</section>
+				<section>
+					<h2>Are they really unpredictable?</h2>
+					<p style="text-align: justify;">
+						In some cases, no! For instance, if we know the exact position of the coin at the moment that it is being flipped, and also we are aware of all the forces having an impact on this procedure, we can exactly predict what is going to happen.
+					</br>
+					However, we usually have much less knowledge about the experiment and we would like to model the experiment using all we have.
+					</p>
+				</section>
+				<section>
+					<h2>Are they really unpredictable?</h2>
+					<p>
+						In some cases, yes! Quantum mechanical processes are an example of this. Read More: <a href="shorturl.at/auJPZ">shorturl.at/auJPZ</a>
+			
+					</br>
+					Remember, we are trying to model the experiment using "ALL WE HAVE"!
+					</p>
+				</section>
+				<section>
+					<h2>Sample Space</h2>
+					The set of all possible outcomes for an experiment</br>
+					Example: When you toss a coin, the sample space is 
+					\[
+					\Omega=S=\{\mathrm{Head, Tail}\} \]
+				</section>
+				<section>
+					Another example: When rolling a dice, we have 
+					\[
+					S = \{1,2,3,4,5,6\}
+					\]
+				
+				In this case, we can consider "the outcome being an odd number" an "event".
+				</section>
+				<section>
+					<h2>Event</h2>
+					An event is a subset of the sample space.
+				</br>
+				Example: "the outcome being an odd number" is equivalent to having \[E=\{1,3,5\}\]
+				
+				Obviously we have \[E\subseteq S\]
+				</section>
+				<section>
+					<h2>
+						Probability Function
+					</h2>
+					A function $P:A\mapsto [0,1]$
+					where $A$ is an event. The following properties should hold for $P$:<br><br>
+					<ul>
+						<li>
+							$\forall A\subset\Omega \quad 0\le P(A)\le 1$
+						</li>
+						<li>
+							$P(\Omega)=1$
+						</li>
+						<li>
+							If $A$ and $B$ are disjoint ($A \cap B=\emptyset$), then we have: $P(A \cup B)=P(A)+P(B)$
+						</li>
+						</ul>
+				</section>
+				<section>
+					<h2>Some properties of the probability function</h2>
+						$$P(A^C)=1 - P(A) $$
+						Proof: 
+
+						$$(\Omega = A \cup A^C) \land (A \cap A^C = \emptyset)$$ $$\implies 1 = P(\Omega) = P(A \cup A^C) = P(A) + P(A^C)$$
+						$$\implies 1 = P(A)+P(A^C)$$
+				</section>
+				<section>
+					<h2>Some properties of the probability function</h2>
+					$$P(A \cup B) = P(A)+P(B)-P(A \cap B)$$
+					Proof: 
+					$$ (i): P(A \cup (B \cap A^C)) = P(A) + P(B \cap A^C)$$
+					$$ \implies P(A \cup B) = P(A) + P(B \cap A^C) $$
+				</section>
+				<section>
+					<h2>Some properties of the probability function</h2>
+					$$P(A \cup B) = P(A)+P(B)-P(A \cap B)$$
+					Proof: 
+					$$ (ii): P((B \cap A) \cup (B \cap A^C)) = P(B \cap A) + P(B \cap A^C) $$
+					$$ \implies P(B \cap A^C) = P(B) - P(A \cap B) $$
+				</section>
+				<section>
+					<h2>Conditional Probability</h2>
+					$$P(A|B) := \dfrac{P(A \cap B)}{P(B)}$$
+					Note: This is only defined if $P(B)>0$.
+				</section>
+				<section>
+					<h2>Is it really a probability function?</h2>
+				</section>
+				<section>
+					$$ 0 \le P(A \cup B) \le 1 \newline P(B) >0 \newline \implies P(A|B) \in [0,1]$$
+				</section>
+				<section>
+					$$ \Omega = B \implies P(\Omega|B) = P(B|B) = \dfrac{P(B \cap B)}{P(B)} = 1$$
+				</section>
+				<section>
+					$$ A_1 \cap A_2 = \emptyset \implies P(A_1 \cup A_2 | B) = \dfrac{P((A_1 \cup A_2)\cap B)}{P(B)} \newline = \dfrac{P((A_1 \cap B) \cup (A_2 \cap B))}{P(B)} = \dfrac{P(A_1 \cap B)+P(A_2 \cap B)}{P(B)} \newline \dfrac{P(A_1 \cap B)}{P(B)} + \dfrac{P(A_2 \cap B)}{P(B)} \newline = P(A_1 | B) + P(A_2 | B)$$
+				</section>
+				<section>
+					<h2>Bayes Theorem</h2>
+					$$P(A|B) = \dfrac{P(B|A)P(A)}{P(B)}$$
+					Proof:
+					$$ P(A|B) = \dfrac{P(A \cap B)}{P(B)} \implies P(A|B)P(B) = P(A \cap B) \newline P(B|A) = \dfrac{P(B \cap A)}{P(A)} \implies P(B|A)P(A) = P(A \cap B)$$
+				</section>
+			</div>
+		</div>
+
+		<script src="dist/reveal.js"></script>
+		<script src="plugin/notes/notes.js"></script>
+		<script src="plugin/markdown/markdown.js"></script>
+		<script src="plugin/highlight/highlight.js"></script>
+		<script>
+			// More info about initialization & config:
+			// - https://revealjs.com/initialization/
+			// - https://revealjs.com/config/
+			Reveal.initialize({
+				hash: true,
+
+				// Learn about plugins: https://revealjs.com/plugins/
+				plugins: [ RevealMarkdown, RevealHighlight, RevealNotes ]
+			});
+		</script>
+		<script src="plugin/math/math.js"></script>
+		<script>
+		  Reveal.initialize({
+			math: {
+			  mathjax: 'https://cdn.jsdelivr.net/gh/mathjax/mathjax@2.7.8/MathJax.js',
+			  config: 'TeX-AMS_HTML-full',
+			  // pass other options into `MathJax.Hub.Config()`
+			  TeX: { Macros: { RR: "{\\bf R}" } }
+			},
+			plugins: [ RevealMath ]
+		  });
+		  Reveal.initialize({ slideNumber: 'c/t' });
+
+		</script>
+	</body>
+</html>
