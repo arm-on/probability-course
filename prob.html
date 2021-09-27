@@ -158,6 +158,169 @@
 						<li>$P(A)=0$ or $P(B)=0$</li>
 					</ul>
 				</section>
+				<section>
+					<h2>Independent Events</h2>
+					$$
+					P(A|B) = P(A) \land P(B|A) = P(B)
+					\newline
+					\implies P(A\cap B) = P(A|B)P(B) = P(A)P(B)
+					\newline \implies P(A \cap B) = P(A)P(B)
+					$$
+				</section>
+				<section>
+					<h2>Independent Events given another Event</h2>
+					$$ P(A|B,C) = P(A|C) \land P(B|A,C) = P(B|C) 
+					$$
+				</section>
+				<section>
+					<h2>Independent Events given another Event</h2>
+					$$  
+					P(A|B,C) = P(A|C) \iff \frac{P(A\cap B \cap C)}{P(B\cap C)} = 
+					\frac{P(A\cap C)}{P(C)}
+					\newline \iff
+					\frac{P(A\cap B \cap C)}{P(A\cap C)} = \frac{P(B\cap C)}{P(C)} 
+					\newline \iff
+					P(B|A,C) = P(B|C)
+					$$
+				</section>
+				<section>
+					<h2>Chain Rule</h2>
+					$$
+					P(A_1 \cup A_2 \cup \dots \cup A_k)
+					=
+					P(\cup_{i=1}^k) = \newline
+					\sum_{i=1}^k P(A_i) - \sum_{i,j} P(A_i \cap A_j)
+					+ \sum_{i,j,k} P(A_i \cap A_j \cap A_k) - \dots
+					$$
+				</section>
+				<section>
+					<h2>Chain Rule</h2>
+					$$
+					P(A_1 \cap A_2 \cap \dots \cap A_k)
+					= \newline
+					P(A_1)P(A_2 | A_1)P(A_3| A_2, A_1)
+					P(A_4 | A_3,A_2,A_1) \dots \newline
+					P(A_k|A_{k-1}, A_{k-2}, \dots, A_1)
+					$$
+				</section>
+				<section>
+					<h2>Random Variable</h2>
+					A function $X:\Omega\to\mathbb{R}$ which takes an outcome of a random experiment as its input, <br>and outputs a real number.
+					<br><br>
+					Example: $$ X(\mathrm{Heads}) = 0 \newline X(\mathrm{Tails}) = 1$$
+				</section>
+				<section>
+					<h2>Discrete vs. Continuous</h2>
+					If the range of the R.V. is countable, it's called discrete.<br>
+					If it is uncountably infinite, (usually an interval), it's continuous.
+				</section>
+				<section>
+					<h2>Discrete Random Variable</h2>
+					Experiment: Rolling a dice
+					<br>
+					For each face $f$, define $X(f)=f+1$
+				</section>
+				<section>
+					<h2>Continuous Random Variable</h2>
+					Experiment: Exploring the Status of the Weather
+					<br> Random Variable: The Temperature
+					<br>
+					<br>Note: A random variable actually simplifies the complicated situation of the outcome of an experiment such as the position of the molecules present in the air, the status of the sun, etc. 
+				</section>
+				<section>
+					<h2>Probability Mass Function (PMF)</h2>
+					Assume that $R_X$ is the range of an R.V. like $X$.<br>
+					A function $p_X:R_X\to [0,1]$ for which the following conditions hold:
+					<br><br><ul>
+						<li>$\forall x \quad p_X(x)\ge 0$</li>
+						<li>$\sum_{x \in \Omega_X} p_X(x) = 1$</li>
+					</ul>
+				</section>
+				<section>
+					<h2>Probability Mass Function (PMF)</h2>
+					$$
+					X(\mathrm{Heads}) = 0 \quad \land \quad X(\mathrm{Tails}) = 1 \implies R_X = \{0,1\}
+					\newline
+					p(0) = \frac{1}{2} \newline
+					p(1) = \frac{1}{2}
+					$$
+				</section>
+				<section>
+					<h2>Probability Mass Function vs. Probability Function</h2>
+					PMF: $\quad p:\Omega \to [0,1]$<br>
+					Probability Function: $\quad \mathbb{P}:F \to [0,1]$
+				</section>
+				<section>
+					<h2>Probability Mass Function vs. Probability Function</h2>
+					PMF: $\quad p:\mathrm{outcome} \mapsto r\in [0,1]$<br>
+					Probability Function: $\quad \mathbb{P}:\mathrm{event} \mapsto r\in [0,1]$
+				</section>
+				<section>
+					<h2>Cumulative Distribution Function (CDF)</h2>
+					$$
+					\forall x \in R_X \quad F_X(x) = \mathbb{P}(\{\omega\in \Omega:X(\omega) \le x\}) = \mathbb{P}(X \le x)
+					$$
+				</section>
+				<section>
+					<h2>CDF is Non-decreasing</h2>
+					<ul>
+						<li>
+							$\lim_{x\to-\infty} F(x)=0$
+							<br>
+							Since: $F(-\infty)=\mathbb{P}(X \le -\infty)=0$
+						</li><br>
+						<li>
+							$\lim_{x\to+\infty} F(x)=1$
+							<br>
+							Since: $F(+\infty)=\mathbb{P}(X \le +\infty)=1$
+						</li><br>
+						<li>
+							$x_1 \le x_2 \implies F(x_1) \le F(x_2)$
+						</li>
+					</ul>
+				</section>
+				<section>
+					<h2>Question</h2>
+					Assume 1,000,000 people, each paying 10,000 dollars are participating in a game.
+					<br>At the end, only one person will win, and the reward will be 100,000,000 dollars. Is it wise to participate?
+				</section>
+				<section>
+					<h2>Probability Approach</h2>
+					Experiment: Measuring the change in our money after participating in the game.
+					<br>
+					Outcome: The amount of change
+					<br>
+					Random Variable: The amount of change <br>$X(i)=i \quad \forall i$
+				</section>
+				<section>
+					We have two cases: 1. Winning 2. Losing
+					<br>
+					$$
+					\mathbb{P}(\mathrm{Winning}) = \frac{1}{1,000,000}
+					$$
+					If we win, the change will be:<br>
+					-10,000 + 100,000,000 = 99990000
+				</section>
+				<section>
+					We have two cases: 1. Winning ~100M 2. Losing 10K
+					<br>
+					$$
+					\mathbb{P}(\mathrm{Losing}) = \frac{1}{999999}
+					$$
+					If we win, the change will be:<br>
+					-10,000
+				</section>
+				<section>
+					We calculate a weighted average of the outcome in these two cases.
+					<br>
+					The weight of each case is the probability of it.
+					<br>
+					$$
+					\sum_{x \in R_X} x\mathbb{P}(x) = \newline 99990000\times \frac{1}{1000000} + (-10000)\times \frac{999999}{1000000}
+					\newline = -9900
+					$$
+					So, on average, we will lose!
+				</section>
 			</div>
 		</div>
 
