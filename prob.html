@@ -321,6 +321,82 @@
 					$$
 					So, on average, we will lose!
 				</section>
+				<section>
+					<h3>Expected Value of a Discrete R.V.</h3>
+					$$
+					E(X) = \sum_{x\in \mathrm{Range}(X)}x\mathbb{P}(X=x)
+					$$
+				</section>
+				<section>
+					<h2>Example</h2>
+					<p style="text-align:left">
+					$$
+					X: \mbox{the result of rolling a die}
+					\newline
+					Y: 3X+1
+					\newline
+					E(Y)=\sum_{y\in R_Y}\mathbb{P}(Y=y)y \newline = \frac{1}{6}(4+7+10+13+16+19) = \frac{23}{2}
+					$$
+					Note that $4=3*1+1$, $7=3*2+1$, $\dots$ 
+					</p>
+				</section>
+				<section>
+					<h3>Expected Value of a Linear Transformation of a R.V.</h3>
+					$$
+					Y=aX+b \implies E(Y)=aE(X)+b
+					\newline
+					E(X)=\sum x\mathbb{P}(X=x)
+					\newline
+					Y=aX+b \implies E(Y)= \sum (ax+b)\mathbb{P}(Y=ax+b) \newline = \sum (ax+b)\mathbb{P}(X = x)
+					
+					 = \sum ax \mathbb{P}(X = x) + \sum b \mathbb{P}(X = x)
+					 \newline
+					 = a \sum x \mathbb{P}(X=x) + b \sum \mathbb{P}(X=x) = aE(X)+b 
+					$$
+				</section>
+				<section>
+					<h2>Variance</h2>
+					$$
+					Var(X) = E(X-E(X))^2 = \sum_{x\in R_X}(x-E(X))^2 \mathbb{P}(X=x)
+					$$
+					Why the power of 2?	<br>
+					$E(X) \mbox{ is constant} \newline \implies E(X-E(X))=E(X)-E(X)=0$
+				</section>
+				<section>
+					<h2>Example</h2>
+					The variance of $X$ being the result of rolling a die
+					<br>
+					It is $\frac{70}{24}$, and this shows how much the result can get further from its expected value!
+				</section>
+				<section>
+					<h2>Standard Deviation</h2>
+					$$
+					\sqrt{Var(X)} = SD(X)
+					$$
+					Note: The variance is not in the same unit of measurement as the original data. Hence, SD is needed.
+				</section>
+				<section>
+					<h2>Variance - Another Formula</h2>
+					$$
+					Var(X) = E[(X-E(X))^2] = \sum_{x\in R_X}\mathbb{P}(X=x)(x-\mu)
+					\newline
+					= \sum \mathbb{P}(X=x)(x^2+\mu^2-2x\mu)
+					\newline
+					=\mu^2\sum\mathbb{P}(X=x)-2\mu\sum x \mathbb{P}(X=x) + \sum x^2 \mathbb{P}(X=x)
+					\newline
+					= \mu^2-2\mu^2+E(X^2)
+					\newline
+					\implies Var(X) = E(X^2)-E(X)^2
+					$$
+				</section>
+				<section>
+					<h2>Variance of Linear Combination of a R.V.</h2>
+					$$
+					Var(aX+b) = E[(aX+b-a\mu-b)^2] = E[a^2(X-\mu)^2] \newline = a^2E[(X-\mu)^2] = a^2 Var(X)
+					$$
+
+				</section>
+
 			</div>
 		</div>
 
