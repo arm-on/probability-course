@@ -394,9 +394,69 @@
 					$$
 					Var(aX+b) = E[(aX+b-a\mu-b)^2] = E[a^2(X-\mu)^2] \newline = a^2E[(X-\mu)^2] = a^2 Var(X)
 					$$
-
 				</section>
-
+				<section>
+					<h3>Meaning of a Discrete Distribution</h3>
+					<br>A function distributing the probability between the various cases
+					<br>
+					Recap: That was called a Probability Mass Function which gave a probability for the occurence of each outcome of a discrete random variable
+				</section>
+				<section>
+					<h2>Well-known discrete distributions</h2>
+				</section>
+				<section>
+					<h3>Bernoulli Distribution</h3>
+					$$
+					X=
+					\begin{cases}
+					1 \quad p \\
+					0 \quad q=1-p
+					\end{cases}
+					\implies X \sim \mathrm{Bernoulli}(p)
+					$$
+					<br>Example: The outcome of tossing a coin
+				</section>
+				<section>
+					$$
+					E(X) = 0*(1-p) + 1*p = p
+					$$
+					<br>
+					$$
+					Var(X) = E(X^2) - (E(X))^2 \newline = [0^2*(1-p) + 1^2*p] - p^2
+					\newline
+					= p-p^2 = p(1-p) = pq
+					$$
+				</section>
+				<section>
+					<h2>Cumulative Distribution Function</h2>
+					<img src="img/bernoulli-cdf.jpg" style="width:80%">
+				</section>
+				<section>
+					<h3>Binomial Distribution</h3>
+					Repeat a Bernoulli Experiment $n$ times<br>
+					Define $Y$ as the number of times we see 1<br>
+					$$
+					\mathbb{P}(Y=k) = {n\choose k}p^k (1-p)^{n-k} \quad 0 \le k \le n
+					\newline \implies Y \sim \mathrm{Binomial}(n,p)
+					$$
+				</section>
+				<section>
+					Define $X_i$'s as the outcomes of $n$ independent Bernoulli Experiments
+					$$
+					E(X_1 + X_2 + \dots + X_n) = E(X_1) + E(X_2) + \dots + E(X_n)
+					\newline
+					Y=X_1 + X_2 + \dots + X_n
+					\implies E(Y) = \sum_{i=1}^n E(X_i) = np
+					\newline Var(Y) = Var(X_1) + Var(X_2) + \dots + Var(X_n)
+					\newline \implies Var(Y) = npq
+					$$
+				</section>
+				<section>
+					<h2>Geometric Distribution</h2>
+					Assume that we repeat the Bernoulli experiment again and again. <br>
+					Let $p$ be the probability of success, and $1-p$ be that of failure for each experiment.<br>
+					How many times should we do this until we succeed? 
+				</section>
 			</div>
 		</div>
 
