@@ -407,10 +407,14 @@
 				<section>
 					<h3>Bernoulli Distribution</h3>
 					$$
-					X=
+					X(\mathrm{success}) = 1
+					\quad X(\mathrm{failure}) = 0
+					$$
+
+					$$
 					\begin{cases}
-					1 \quad p \\
-					0 \quad q=1-p
+					\mathbb{P}(X=1) = p \newline
+					\mathbb{P}(X=0) = q = 1-p
 					\end{cases}
 					\implies X \sim \mathrm{Bernoulli}(p)
 					$$
@@ -434,7 +438,7 @@
 				<section>
 					<h3>Binomial Distribution</h3>
 					Repeat a Bernoulli Experiment $n$ times<br>
-					Define $Y$ as the number of times we see 1<br>
+					Define $Y$ as the number of times we succeed<br>
 					$$
 					\mathbb{P}(Y=k) = {n\choose k}p^k (1-p)^{n-k} \quad 0 \le k \le n
 					\newline \implies Y \sim \mathrm{Binomial}(n,p)
@@ -456,6 +460,158 @@
 					Assume that we repeat the Bernoulli experiment again and again. <br>
 					Let $p$ be the probability of success, and $1-p$ be that of failure for each experiment.<br>
 					How many times should we do this until we succeed? 
+				</section>
+				<section>
+					<h2>Q: What is the probability of being successful at the $k$'s experiment for the first time?</h2>
+				</section>
+				<section>
+					<h2>Geometric Distribution</h2>
+					$X$: the index of the first time we succeed while repeating a Bernoulli experiment 
+
+					$$
+					\mathbb{P}(X=k) = (1-p)^{k-1} p
+					\newline
+					E(X) = \sum_{k=1}^\infty k(1-p)^{k-1}p
+					$$
+				</section>
+				<section>
+					<h2>Geometric Distribution</h2>
+					$$
+					E(X) = 1\times p + 2\times(1-p)^1 p + 3\times (1-p)^2 p + \dots 
+					\newline 
+					 = [p + (1-p)p + (1-p)^2 p + \dots] \newline + [(1-p)p + (1-p)^2 p + \dots] \newline + [(1-p)^2 p + (1-p)^3 p + \dots] + \dots 
+					\newline
+					= \frac{p}{1-(1-p)} + \frac{p(1-p)}{1-(1-p)} + \frac{p(1-p)^2}{1-(1-p)} + \dots 
+					$$
+				</section>
+				<section>
+					<h2>Geometric Distribution</h2>
+					$$
+					E(X) = 1 + \frac{p(1-p)}{p} + \frac{p(1-p)^2}{p} + \dots 
+					\newline
+					= 1 + \frac{\frac{p(1-p)}{p}}{1-(1-p)} = 1 + \frac{1-p}{p} = \frac{p+1-p}{p} = \frac{1}{p}
+					$$
+				</section>
+				<section>
+					<h2>
+						Hypergeometric Distribution
+					</h2>
+					Assume we have $N_1$ red balls and $N_2$ blue balls inside a bag. We take $n$ balls out of the bag.
+					<br>
+					What is the probability of $x$ balls being red?
+					<br>
+					$X$: the number of red balls we take out of the bag
+					$$
+					\mathbb{P}(X=x) = \frac{{N_1 \choose x}{N_2 \choose {n-x}}}{{N_1+N_2}\choose n}
+					$$
+				</section>
+				<section>
+					<h2>Hypergeometric Distribution</h2>
+					$$
+					X_i := 
+					\begin{cases}
+					1 \quad \mathrm{red} \newline
+					0 \quad \mathrm{blue}
+					\end{cases}
+					
+					\implies X = X_1 + X_2 + \dots + X_n
+					\newline
+					E(X) = E(X_1) + E(X_2) + \dots + E(X_n) = n(\frac{N_1}{N_1+N_2})
+					$$
+				</section>
+				<section>
+					<h2>Poisson Distribution</h2>
+					<p style="text-align: justify;">
+					Assume that you are standing on a street watching the cars.<br>
+					Also, assume that the drivers are not aware of what you are doing, and are independently driving their cars.
+					Moreover, assume that the time between the arrivals of the cars has a fixed rate.<br>
+					Each time a car passes by, you press a button.<br>
+					After a fixed amount of time, count the times you have pressed the button.<br>
+					</p>
+				</section>
+				<section>
+					<h2>Poisson Distribution</h2>
+					Q: What is the probability that we see $k$ cars in a fixed amount of time?
+					<br>
+					<img src="img/poisson.png">
+				</section>
+				<section>
+					<img src="img/poisson.png">
+					$$
+					\mathbb{P}(X=k) = \lim_{n \to \infty} {n \choose k}(\frac{\lambda}{n})^k (1-\frac{\lambda}{n})^{n-k}
+					\newline
+					\lim_{n\to \infty} \frac{n!}{k! (n-k)!} \frac{\lambda ^ k}{n ^ k}(1-\frac{\lambda}{n})^n
+					$$
+				</section>
+				<section>
+					$$
+					\mathbb{P}(X=k) = \lim_{n \to \infty} {n \choose k}(\frac{\lambda}{n})^k (1-\frac{\lambda}{n})^{n-k}
+					\newline
+					\lim_{n\to \infty} \frac{n!}{k! (n-k)!} \frac{\lambda ^ k}{n ^ k}(1-\frac{\lambda}{n})^n
+					\newline
+					\lim_{n \to \infty} \frac{\lambda^k}{k!}\frac{[n(n-1)(n-2)\dots(n-k+1)]}{n^k}(1-\frac{\lambda}{n})^n (1-\frac{\lambda}{n})^{-k}
+					\newline
+					\lim_{n \to \infty} \frac{\lambda ^k}{k!}[1.(1-\frac{1}{n})(1-\frac{2}{n})\dots (1-\frac{k+1}{n})] (1-\frac{\lambda}{n})^n (1-\frac{\lambda}{n})^{-k}
+					$$
+				</section>
+				<section>
+					$$
+					\lim_{n \to \infty} \frac{\lambda ^k}{k!}[1.(1-\frac{1}{n})(1-\frac{2}{n})\dots (1-\frac{k+1}{n})] (1-\frac{\lambda}{n})^n (1-\frac{\lambda}{n})^{-k}
+					\newline 
+					= \frac{\lambda^k}{k!} \times 1 \times e^{-\lambda} \times 1^{-k} = \frac{\lambda^k}{k!}e^{-\lambda}
+					\newline \implies \mathbb{P}(X=k) = \frac{e^{-\lambda} \lambda^k}{k!}
+					$$
+				</section>
+				<section>
+					<h2>Poisson Distribution</h2>
+					<p style="text-align: justify;">
+					$X$: The number of events occuring in a given time interval
+					<br><br>
+					$\mathbb{P}(X=k) = \frac{e^{-\lambda} \lambda^k}{k!} \implies X \sim \mathrm{Poisson}(\lambda)$
+					<br><br>
+					Note: $E(X)=\lambda \quad$ (Proof: Google!)
+					</p>
+				</section>
+				<section>
+					<h3>Linear Property of Expected Value</h3>
+					$$
+					E(aX+b)=aE(X)+b \quad g(X):=aX+b
+					\newline
+					E(aX+b)=E(g(X))=\int_{-\infty}^{\infty}(ax+b)f_X(x)dx
+					\newline = \int ax f_X(x)dx + \int b f_X(x)dx \newline = a\int x f_X(x)dx + b \int f_X(x)dx = aE(X) + b
+					$$
+				</section>
+				<section>
+					<h2>Linear Transformation Impact on Variance</h2>
+					$$
+					Var(aX+b) = E[(aX+b-a\mu -b)^2]\newline = E(a^2 (X-\mu)^2) \newline = a^2 E[(x-\mu)^2] = a^2 Var(X)
+					$$
+				</section>
+				<section style="text-align: justify;">
+					<h2>Normal Distribution</h2>
+					Assume you have a coin. Toss it for a lot of times, and calculate the mean.<br>
+					Repeat this experiment many times.<br>
+					The set of the means you calculate follow a distribution.
+				</section>
+				<section style="text-align: justify;">
+					<h2>Normal Distribution</h2>
+					If we have a lot of independent random variables all following a same distribution, <br>
+					the sum (or mean) of them follows a Normal (Gaussian) Distribution.
+					$$
+					X_i\mbox{'s are independent and follow the same distribution}\newline \implies X_1 + X_2 + \dots + X_n \sim \mathcal{N}(\mu, \sigma^2)
+					$$
+				</section>
+				<section>
+					<h2>Normal Distribution</h2>
+					$$
+					X \sim \mathcal{N}(\mu, \sigma^2) \implies f_X(x)= \frac{1}{\sqrt{2\pi \sigma^2}} e^{-\frac{(x-\mu)^2}{2\sigma^2}}
+					$$
+				</section>
+				<section>
+					<h2>Standard Normal Distribution</h2>
+					$$
+					X \sim \mathcal{N}(0, 1) \implies f_X(x)= \frac{1}{\sqrt{2\pi }} e^{-\frac{x^2}{2}}
+					$$
 				</section>
 			</div>
 		</div>
